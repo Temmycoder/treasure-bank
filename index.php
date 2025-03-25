@@ -41,9 +41,21 @@ elseif($url[0] == 'reset_password'){
 elseif($url[0] == 'handleResetPassword'){
   require_once 'routes/Reset_password.php';
 }
+elseif($url[0] == 'adminSignup'){
+  require_once 'views/adminSignup.php';
+}
 elseif($url[0] == 'adminDashboard'){
   require_once 'views/adminDashboard.php';
 }
+elseif($url[0] == 'manageUsers'){
+  require_once 'views/manageUsers.php';
+}
+elseif($url[0] == 'editUsers'){
+  require_once 'views/editUsers.php';
+}
+elseif($url[0] == 'handleEditUsers'){
+  require_once 'routes/Edit_users.php';
+}
 else{
-  echo "<h1 class ='alert alert danger'>404 error: Page not found</h1>";
+  echo "<h1 class='alert alert danger'>404 error: Page not found</h1>";
 }

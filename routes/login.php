@@ -6,7 +6,11 @@ $auth = new AuthController;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $user = $auth->handleLogin($_POST['email'], $_POST['code']);
   if($user){
-    header('Location: /treasurebank/dashboard');
+    if($_SESSION['role'] == 'user'){
+      header('Location: /treasurebank/dashboard');
+    }else{
+      header('Location: /treasurebank/adminDashboard');
+    }
   }else{
     header('Location: /treasurebank/index?error=1');
   }

@@ -17,7 +17,4 @@ class UsersController{
     $change =  $this->user->update($id, $fname, $lname, $phone, $email);
     return $change;
   }
-  
-  
-
 }

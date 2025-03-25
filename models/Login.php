@@ -20,6 +20,7 @@ class User{
         session_start();
         $_SESSION['id'] = $result['id'];
         $_SESSION['code'] = $code;
+        $_SESSION['role'] = $result['role'];
         $_SESSION['fname'] = $result['first_name'];
         $_SESSION['lname'] = $result['last_name'];
         return $result;

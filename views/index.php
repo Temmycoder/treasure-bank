@@ -72,7 +72,7 @@ if(isset($_GET['success'])){
         <div class="row">
           <div class="col-auto col-lg-4"></div>
           <div class="col-12 col-lg-4">
-            <input type="submit" name="login" value="Submit" class="text-white btn btn-warning">
+            <input type="submit" name="login" value="Login" class="text-white btn btn-warning">
           </div>
           <div class="col-auto col-lg-4"></div>
         </div>

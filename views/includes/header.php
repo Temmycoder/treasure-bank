@@ -1,6 +1,4 @@
 <?php 
-session_start(); 
-error_reporting(1); 
 $name = $_SESSION['fname']. " " .$_SESSION['lname']; 
 ?>
 

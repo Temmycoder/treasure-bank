@@ -25,14 +25,10 @@ class Users{
     }
   }
 
-  public function read(){
-    $sql = "SELECT * FROM $this->table";
-    $result = $this->conn->query($sql);
-    return $result->fetch_all(MYSQLI_ASSOC);
-  }
-
   public function update($id, $fname, $lname, $phone, $email){
-    return $this->conn->query("UPDATE $this->table SET first_name = '$fname', last_name = '$lname',  
+    $firstName = ucfirst($fname);
+    $lastName = ucfirst($lname);
+    return $this->conn->query("UPDATE $this->table SET first_name = '$firstName', last_name = '$lastName',  
     phone = '$phone', email = '$email' WHERE id = '$id'");
   }
 

@@ -78,7 +78,7 @@ if(isset($_GET['error'])){
         </div>
         <div class="row">
           <div class="col-6">
-            <input type="submit" name="login" value="Submit" class="text-white btn btn-warning">
+            <input type="submit" value="Submit" class="text-white btn btn-warning">
           </div>
 
           <div class="col-6">

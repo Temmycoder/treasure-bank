@@ -46,7 +46,7 @@ $fname = $_SESSION['fname'];
 </div>
 <!-- [ Pre-loader ] End -->
  <!-- [ Sidebar Menu ] start -->
-<?php include "includes/sidebar.php" ;?>
+<?php include "includes/adminSidebar.php" ;?>
 <!-- [ Sidebar Menu ] end --> <!-- [ Header Topbar ] start -->
 <?php include "includes/header.php" ;?>
 
@@ -76,7 +76,7 @@ $fname = $_SESSION['fname'];
         <div class="col-md-6 col-xl-3">
           <div class="card">
             <div class="card-body">
-              <h6 class="mb-2 f-w-400 text-muted">Current Balance</h6>
+              <h6 class="mb-2 f-w-400 text-muted">Total Users</h6>
               <h4 class="mb-3">4,42,236 <span class="badge bg-light-primary border border-primary"><i
                     class="ti ti-trending-up"></i> </span></h4>
               <p class="mb-0 text-muted text-sm">You made <span class="text-primary">35,000</span> this year</p>
@@ -86,9 +86,11 @@ $fname = $_SESSION['fname'];
         <div class="col-md-6 col-xl-3">
           <div class="card">
             <div class="card-body">
-              <h6 class="mb-2 f-w-400 text-muted">Total withdrawals</h6>
-              <h4 class="mb-3">70,000 <span class="badge bg-light-success border border-success"><i
-                    class="ti ti-trending-up"></i> </span></h4>
+            <h6 class="mb-2 f-w-400 text-muted">Net Profit</h6>
+              <h4 class="mb-3">
+                70,000 
+                <span class="badge bg-light-success border border-success"><i class="ti ti-trending-up"></i></span>
+              </h4>
               <p class="mb-0 text-muted text-sm">You made an extra <span class="text-success">8,900</span> this year</p>
             </div>
           </div>
@@ -96,17 +98,16 @@ $fname = $_SESSION['fname'];
         <div class="col-md-6 col-xl-3">
           <div class="card">
             <div class="card-body">
-              <h6 class="mb-2 f-w-400 text-muted">Total Deposits</h6>
-              <h4 class="mb-3">0 <span class="badge bg-light-warning border border-warning"><i
-                    class="ti ti-trending-down"></i> </span></h4>
-              <p class="mb-0 text-muted text-sm">You made an extra <span class="text-warning">1,943</span> this year</p>
+              <h6 class="mb-2 f-w-400 text-muted">Saved Money</h6>
+              <h4 class="mb-3">372,916,630.731</h4>
+              <p class="mb-0 text-muted text-sm">You made extra <span class="text-warning">1,943</span> this year</p>
             </div>
           </div>
         </div>
         <div class="col-md-6 col-xl-3">
           <div class="card">
             <div class="card-body">
-              <h6 class="mb-2 f-w-400 text-muted">Loans balance</h6>
+              <h6 class="mb-2 f-w-400 text-muted">Loans Unpaid</h6>
               <h4 class="mb-3">$35,078 <span class="badge bg-light-danger border border-danger"><i
                     class="ti ti-trending-down"></i> </span></h4>
               <p class="mb-0 text-muted text-sm">You made an extra <span class="text-danger">$20,395</span> this year
@@ -117,106 +118,25 @@ $fname = $_SESSION['fname'];
 
         
         <div class="col-md-12 col-xl-8">
-          <h5 class="mb-3">Recent Transactions</h5>
+          <h5 class="mb-3">Latest Accounts</h5>
           <div class="card tbl-card">
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-hover table-borderless mb-0">
                   <thead>
                     <tr>
-                      <th>Amount</th>
-                      <th>Recipient</th>
+                      <th>Name</th>
                       <th>Account Number</th>
-                      <th>STATUS</th>
-                      <th class="text-end">Date/Time</th>
+                      <th>Transactions</th>
+                      <th class="text-end">Joined</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td><a href="#" class="text-muted">84564564</a></td>
-                      <td>Camera Lens</td>
-                      <td>40</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-danger f-10 m-r-5"></i>Rejected</span>
-                      </td>
-                      <td class="text-end">$40,570</td>
-                    </tr>
-                    <tr>
-                      <td><a href="#" class="text-muted">84564564</a></td>
-                      <td>Laptop</td>
-                      <td>300</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-warning f-10 m-r-5"></i>Pending</span>
-                      </td>
-                      <td class="text-end">$180,139</td>
-                    </tr>
-                    <tr>
-                      <td><a href="#" class="text-muted">84564564</a></td>
-                      <td>Mobile</td>
-                      <td>355</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-success f-10 m-r-5"></i>Approved</span></td>
-                      <td class="text-end">$180,139</td>
-                    </tr>
-                    <tr>
-                      <td><a href="#" class="text-muted">84564564</a></td>
-                      <td>Camera Lens</td>
-                      <td>40</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-danger f-10 m-r-5"></i>Rejected</span>
-                      </td>
-                      <td class="text-end">$40,570</td>
-                    </tr>
-                    <tr>
-                      <td><a href="#" class="text-muted">84564564</a></td>
-                      <td>Laptop</td>
-                      <td>300</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-warning f-10 m-r-5"></i>Pending</span>
-                      </td>
-                      <td class="text-end">$180,139</td>
-                    </tr>
-                    <tr>
-                      <td><a href="#" class="text-muted">84564564</a></td>
-                      <td>Mobile</td>
-                      <td>355</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-success f-10 m-r-5"></i>Approved</span></td>
-                      <td class="text-end">$180,139</td>
-                    </tr>
-                    <tr>
-                      <td><a href="#" class="text-muted">84564564</a></td>
-                      <td>Camera Lens</td>
-                      <td>40</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-danger f-10 m-r-5"></i>Rejected</span>
-                      </td>
-                      <td class="text-end">$40,570</td>
-                    </tr>
-                    <tr>
-                      <td><a href="#" class="text-muted">84564564</a></td>
-                      <td>Laptop</td>
-                      <td>300</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-warning f-10 m-r-5"></i>Pending</span>
-                      </td>
-                      <td class="text-end">$180,139</td>
-                    </tr>
-                    <tr>
-                      <td><a href="#" class="text-muted">84564564</a></td>
-                      <td>Mobile</td>
-                      <td>355</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-success f-10 m-r-5"></i>Approved</span></td>
-                      <td class="text-end">$180,139</td>
-                    </tr>
-                    <tr>
-                      <td><a href="#" class="text-muted">84564564</a></td>
-                      <td>Mobile</td>
-                      <td>355</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-success f-10 m-r-5"></i>Approved</span></td>
-                      <td class="text-end">$180,139</td>
+                      <td><a href="#" class="text-muted"></a></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
                     </tr>
                   </tbody>
                 </table>
@@ -245,7 +165,7 @@ $fname = $_SESSION['fname'];
         </div>
 
         <div class="col-md-12 col-xl-8">
-          <h5 class="mb-3">Sales Report</h5>
+          <h5 class="mb-3">History</h5>
           <div class="card">
             <div class="card-body">
               <h6 class="mb-2 f-w-400 text-muted">This Week Statistics</h6>
@@ -258,40 +178,7 @@ $fname = $_SESSION['fname'];
           <h5 class="mb-3">Transaction History</h5>
           <div class="card">
             <div class="list-group list-group-flush">
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex">
-                  <div class="flex-shrink-0">
-                    <div class="avtar avtar-s rounded-circle text-success bg-light-success">
-                      <i class="ti ti-gift f-18"></i>
-                    </div>
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h6 class="mb-1">Order #002434</h6>
-                    <p class="mb-0 text-muted">Today, 2:00 AM</P>
-                  </div>
-                  <div class="flex-shrink-0 text-end">
-                    <h6 class="mb-1">+ $1,430</h6>
-                    <p class="mb-0 text-muted">78%</P>
-                  </div>
-                </div>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex">
-                  <div class="flex-shrink-0">
-                    <div class="avtar avtar-s rounded-circle text-primary bg-light-primary">
-                      <i class="ti ti-message-circle f-18"></i>
-                    </div>
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h6 class="mb-1">Order #984947</h6>
-                    <p class="mb-0 text-muted">5 August, 1:45 PM</P>
-                  </div>
-                  <div class="flex-shrink-0 text-end">
-                    <h6 class="mb-1">- $302</h6>
-                    <p class="mb-0 text-muted">8%</P>
-                  </div>
-                </div>
-              </a>
+              
               <a href="#" class="list-group-item list-group-item-action">
                 <div class="d-flex">
                   <div class="flex-shrink-0">
@@ -309,6 +196,7 @@ $fname = $_SESSION['fname'];
                   </div>
                 </div>
               </a>
+
             </div>
           </div>
         </div>
