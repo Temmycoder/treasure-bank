@@ -56,6 +56,42 @@ elseif($url[0] == 'editUsers'){
 elseif($url[0] == 'handleEditUsers'){
   require_once 'routes/Edit_users.php';
 }
+elseif($url[0] == 'handleUserStatus'){
+  require_once 'routes/User_status.php';
+}
+elseif($url[0] == 'addUsers'){
+  require_once 'views/addUsers.php';
+}
+elseif($url[0] == 'handleAddUser'){
+  require_once 'routes/Add_users.php';
+}
+elseif($url[0] == 'addAdmins'){
+  require_once 'views/addAdmins.php';
+}
+elseif($url[0] == 'handleAddAdmins'){
+  require_once 'routes/Add_admins.php';
+}
+elseif($url[0] == 'manageAdmins'){
+  require_once 'views/manageAdmins.php';
+}
+elseif($url[0] == 'editAdmins'){
+  require_once 'views/editAdmins.php';
+}
+elseif($url[0] == 'handleEditAdmins'){
+  require_once 'routes/Edit_admins.php';
+}
+elseif($url[0] == 'interests'){
+  require_once 'views/interests&fees.php';
+}
+elseif($url[0] == 'loans'){
+  require_once 'views/loans.php';
+}
+elseif($url[0] == 'addLoanOffer'){
+  require_once 'views/addLoanOffer.php';
+}
+elseif($url[0] == ''){
+  require_once 'routes/.php';
+}
 else{
   echo "<h1 class='alert alert danger'>404 error: Page not found</h1>";
 }

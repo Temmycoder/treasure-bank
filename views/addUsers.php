@@ -1,12 +1,18 @@
-<?php
-require_once 'routes/read.php';
-session_start(); 
+<?php 
+session_start();
+error_reporting(1);
 
 if(!isset($_SESSION['id'])){
   header("location: /treasurebank/index");
 }
-error_reporting(1); 
-$fname = $_SESSION['fname'];
+$msg = "";
+if(isset($_GET['error'])){
+  $msg = "<div class='alert alert-danger'>An Error occured! Try again later</div>";
+}
+
+if(isset($_GET['success'])){
+  $msg = "<div class='alert alert-success'>Profile info was successfully changed</div>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -55,51 +61,56 @@ $fname = $_SESSION['fname'];
 <?php include "includes/adminSidebar.php" ;?>
 <!-- [ Sidebar Menu ] end --> <!-- [ Header Topbar ] start -->
 <?php include "includes/header.php" ;?>
-
 <!-- [ Header ] end -->
 
   <!-- [ Main Content ] start -->
   <div class="pc-container">
     <div class="pc-content">
-      <h2 class="mb-3 text-center">Users</h2>
+      <h2 class="mb-3">New User</h2>
+      <?php echo $msg;?>
+      <div class="col-lg-6">
+        <form method="post" class="container" action="/treasurebank/handleAddUser ">
+          <label>First Name:</label><br>
+          <input type="text" name="fname" id="fname" class="form-control" required autofocus><br>
+  
+          <label>Last Name:</label><br>
+          <input type="text" name="lname" id="lname" class="form-control" required><br>
+  
+          <label>Phone Number:</label><br>
+          <input type="tel" name="phone" id="phone" class="form-control" required><br>
+  
+          <label>E-mail Address:</label><br>
+          <input type="email" name="email" id="email" class="form-control" required><br>
+  
+          <label>Password:</label><br>
+          <input type="password" name="code" id="code" class="form-control" required><br>
+  
+          <div class="row mb-5">
+            <div class="col-md-6">
+              <label>Gender:</label>
+              <select name="gender" id="" class="form-control" required>
+                <option value="female"></option>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+              </select>
+            </div>
+          
+            <div class="col-md-6">
+              <label>DOB:</label><br>
+              <input type="date" name="dob" id="dob" class="form-control" required>
+            </div>
+          </div>
 
-      <div class="table-responsive">
-        <table class="table table-hover table-borderless mb-0">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Phone</th>
-              <th>Email</th>
-              <th>DOB</th>
-              <th>Acc Officer</th>
-              <th>Joined</th>
-            </tr>
-          </thead>
-          <tbody>
-          <?php $i = 0; foreach($users as $u) : $i++?>
-            <tr>
-              <td><?=$i?></td>
-              <td><?=$u['first_name']. " " .$u['last_name']?></td>
-              <td><?=$u['phone']?></td>
-              <td><?=$u['email']?></td>
-              <td><?=$u['DOB']?></td>
-              <td><?=$u['account_officer']?></td>
-              <td><?=$u['time_created']?></td>
-              <td><a href="editUsers?id=<?= $u['id']?>">Edit</a></td>
-              <td>
-                <a href="handleUserStatus?id=<?= $u['id']?>&status=<?= $u['status']?>&role=<?= $u['role']?>">
-                  <?= ($u['status'] === '0')  ? 'Activate': 'Deactivate'; ?>
-                </a>
-              </td>
-            </tr>
-          <?php endforeach ;?>
-          </tbody>
-        </table>
+          <label>Account Officer:</label><br>
+          <input type="text" name="officer" id="officer" class="form-control" required><br>
+
+          <input type="submit" value="Submit" class="text-white btn btn-warning">
+        </form>
       </div>
     </div>
   </div>
   <!-- [ Main Content ] end -->
+
   <?php include "includes/footer.php" ;?>
 
   <!-- [Page Specific JS] end -->

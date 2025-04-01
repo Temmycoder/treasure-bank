@@ -1,5 +1,5 @@
 <?php
-require_once 'routes/read.php';
+require_once 'routes/read_admins.php';
 session_start(); 
 
 if(!isset($_SESSION['id'])){
@@ -61,41 +61,15 @@ $fname = $_SESSION['fname'];
   <!-- [ Main Content ] start -->
   <div class="pc-container">
     <div class="pc-content">
-      <h2 class="mb-3 text-center">Users</h2>
-
-      <div class="table-responsive">
-        <table class="table table-hover table-borderless mb-0">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Phone</th>
-              <th>Email</th>
-              <th>DOB</th>
-              <th>Acc Officer</th>
-              <th>Joined</th>
-            </tr>
-          </thead>
-          <tbody>
-          <?php $i = 0; foreach($users as $u) : $i++?>
-            <tr>
-              <td><?=$i?></td>
-              <td><?=$u['first_name']. " " .$u['last_name']?></td>
-              <td><?=$u['phone']?></td>
-              <td><?=$u['email']?></td>
-              <td><?=$u['DOB']?></td>
-              <td><?=$u['account_officer']?></td>
-              <td><?=$u['time_created']?></td>
-              <td><a href="editUsers?id=<?= $u['id']?>">Edit</a></td>
-              <td>
-                <a href="handleUserStatus?id=<?= $u['id']?>&status=<?= $u['status']?>&role=<?= $u['role']?>">
-                  <?= ($u['status'] === '0')  ? 'Activate': 'Deactivate'; ?>
-                </a>
-              </td>
-            </tr>
-          <?php endforeach ;?>
-          </tbody>
-        </table>
+      <h2 class="mb-3">New Admin</h2>
+      <?php echo $msg;?>
+      <div class="col-lg-6">
+        <form method="post" class="container" action="handleAddBeneficiaryBanks">
+          <select name="banks" id="banks">
+            
+          </select>
+          <input type="submit" value="Submit" class="text-white btn btn-warning">
+        </form>
       </div>
     </div>
   </div>

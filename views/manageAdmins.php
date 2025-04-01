@@ -1,5 +1,5 @@
 <?php
-require_once 'routes/read.php';
+require_once 'routes/read_admins.php';
 session_start(); 
 
 if(!isset($_SESSION['id'])){
@@ -61,7 +61,7 @@ $fname = $_SESSION['fname'];
   <!-- [ Main Content ] start -->
   <div class="pc-container">
     <div class="pc-content">
-      <h2 class="mb-3 text-center">Users</h2>
+      <h2 class="mb-3 text-center">Admins</h2>
 
       <div class="table-responsive">
         <table class="table table-hover table-borderless mb-0">
@@ -72,21 +72,19 @@ $fname = $_SESSION['fname'];
               <th>Phone</th>
               <th>Email</th>
               <th>DOB</th>
-              <th>Acc Officer</th>
               <th>Joined</th>
             </tr>
           </thead>
           <tbody>
-          <?php $i = 0; foreach($users as $u) : $i++?>
+          <?php $i = 0; foreach($admins as $u) : $i++?>
             <tr>
               <td><?=$i?></td>
               <td><?=$u['first_name']. " " .$u['last_name']?></td>
               <td><?=$u['phone']?></td>
               <td><?=$u['email']?></td>
               <td><?=$u['DOB']?></td>
-              <td><?=$u['account_officer']?></td>
               <td><?=$u['time_created']?></td>
-              <td><a href="editUsers?id=<?= $u['id']?>">Edit</a></td>
+              <td><a href="editAdmins?adminid=<?= $u['id']?>">Edit</a></td>
               <td>
                 <a href="handleUserStatus?id=<?= $u['id']?>&status=<?= $u['status']?>&role=<?= $u['role']?>">
                   <?= ($u['status'] === '0')  ? 'Activate': 'Deactivate'; ?>

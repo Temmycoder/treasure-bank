@@ -17,19 +17,41 @@
           </a>
         </li>
         <li class="pc-item">
-          <a href="/treasurebank/adminDashboard0" class="pc-link">
+          <a href="/treasurebank/interests" class="pc-link">
             <span class="pc-micon"><i class="fa fa-money-bill-wave"></i></span>
-            <span class="pc-mtext">Account Details</span>
+            <span class="pc-mtext">Interests & Fees</span>
           </a>
         </li>
         <li class="pc-item">
-          <a href="manageUsers" class="pc-link">
-            <span class="pc-micon"><i class="fa fa-money-bill-transfer"></i></span>
-            <span class="pc-mtext">Manage Users</span>
+          <a href="/treasurebank/loans" class="pc-link">
+            <span class="pc-micon"><i class="fa fa-money-bill-wave"></i></span>
+            <span class="pc-mtext">Loan Management</span>
           </a>
         </li>
         <li class="pc-item pc-hasmenu">
-          <a href="#settings" class="pc-link">
+          <a href="#" class="pc-link">
+            <span class="pc-micon"><i class="fa fa-users"></i></span>
+            <span class="pc-mtext">Admin</span>
+            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+          </a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" href="/treasurebank/addAdmins">Add Admin</a></li>
+            <li class="pc-item"><a class="pc-link" href="/treasurebank/manageAdmins">Manage Admin</a></li>
+          </ul>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a href="#" class="pc-link">
+            <span class="pc-micon"><i class="fa fa-users"></i></span>
+            <span class="pc-mtext">Users</span>
+            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+          </a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" href="/treasurebank/addUsers">Add Users</a></li>
+            <li class="pc-item"><a class="pc-link" href="/treasurebank/manageUsers">Manage Users</a></li>
+          </ul>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a href="#" class="pc-link">
             <span class="pc-micon"><i class="fa fa-gear"></i></span>
             <span class="pc-mtext">Settings</span>
             <span class="pc-arrow"><i data-feather="chevron-right"></i></span>

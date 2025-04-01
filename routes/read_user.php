@@ -1,7 +1,8 @@
 <?php
-require_once 'controllers/AdminController.php';
 session_start();
+require_once 'controllers/AdminController.php';
+
 error_reporting(1);
 $admin = new AdminController();
-$id = $_SESSION['user_id'];
-$user = $admin->readUser($id);
+$adminid = $_SESSION['adminid'];
+$user = $admin->readUser($adminid);

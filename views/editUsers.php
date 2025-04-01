@@ -1,14 +1,11 @@
 <?php 
-require_once 'routes/read_user.php';
-
 session_start();
 error_reporting(1);
-$_SESSION['user_id'] = $_GET['id'];
+$_SESSION['adminid'] = $_GET['id'];
+require_once 'routes/read_user.php';
 
 if(!isset($_SESSION['id'])){
   header("location: /treasurebank/index");
-}
-if(isset($_GET['id'])){
 }
 
 $msg = "";
@@ -73,28 +70,25 @@ if(isset($_GET['success'])){
   <div class="pc-container">
     <div class="pc-content">
       <h2 class="mb-3">Edit User</h2>
-
-      Admin: <?php echo $_SESSION['id']?>
-      user: <?php echo $_SESSION['user_id']?>
       <?php echo $msg;?>
       <form method="post" action="handleEditUsers">
         <div class="col-lg-7">
           <?php $i = 0; foreach($user as $u) : $i++?>
 
           <label>First Name:</label><br>
-          <input type="text" name="fname" id="fname" class="form-control" placeholder="<?= $u['first_name']?>" required autofocus><br>
+          <input type="text" name="fname" id="fname" class="form-control" value="<?= $u['first_name']?>" required autofocus><br>
           
           <label>Last Name:</label><br>
-          <input type="text" name="lname" id="lname" class="form-control" placeholder="<?= $u['last_name']?>" required><br>
+          <input type="text" name="lname" id="lname" class="form-control" value="<?= $u['last_name']?>" required><br>
 
           <label>Phone Number:</label><br>
-          <input type="tel" name="phone" id="phone" class="form-control" placeholder="<?= $u['phone']?>" required><br>
+          <input type="tel" name="phone" id="phone" class="form-control" value="<?= $u['phone']?>" required><br>
 
           <label>Account Officer:</label><br>
-          <input type="text" name="officer" id="officer" class="form-control" placeholder="<?= $u['account_officer']?>" required><br>
+          <input type="text" name="officer" id="officer" class="form-control" value="<?= $u['account_officer']?>" required><br>
 
           <label>E-mail Address:</label><br>
-          <input type="email" name="email" id="email" class="form-control" placeholder="<?= $u['email']?>" required><br>
+          <input type="email" name="email" id="email" class="form-control" value="<?= $u['email']?>" required><br>
           
           <input type="submit" name="submit" id="submit" class="btn btn-warning"><br>
           <?php endforeach ;?>

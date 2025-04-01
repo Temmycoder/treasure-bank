@@ -5,9 +5,9 @@ class UsersController{
   public function __construct(){
     $this->user = new Users();
   }
-  public function handleSignUp($fname, $lname, $email, $code, $phone, $dob, $gender){
+  public function handleSignUp($fname, $lname, $email, $code, $phone, $dob, $gender, $fa){
     return $this->user->create($fname, $lname, $email, $code, 
-    $phone, $dob, $gender);
+    $phone, $dob, $gender, $fa);
   }
   public function handleChangeCode($id, $old, $new){
     $change =  $this->user->changeCode($id, $old, $new);

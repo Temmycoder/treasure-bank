@@ -1,12 +1,22 @@
-<?php
-require_once 'routes/read.php';
-session_start(); 
+<?php 
+session_start();
+error_reporting(1);
+$_SESSION['adminid'] = $_GET['adminid'];
+require_once 'routes/read_user.php';
 
-if(!isset($_SESSION['id'])){
+
+if(!isset($_SESSION['id']) && $_GET['adminid']){
   header("location: /treasurebank/index");
 }
-error_reporting(1); 
-$fname = $_SESSION['fname'];
+
+$msg = "";
+if(isset($_GET['error'])){
+  $msg = "<div class='alert alert-danger'>An Error occured! Try again later</div>";
+}
+
+if(isset($_GET['success'])){
+  $msg = "<div class='alert alert-success'>Profile info was successfully changed</div>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -55,51 +65,40 @@ $fname = $_SESSION['fname'];
 <?php include "includes/adminSidebar.php" ;?>
 <!-- [ Sidebar Menu ] end --> <!-- [ Header Topbar ] start -->
 <?php include "includes/header.php" ;?>
-
 <!-- [ Header ] end -->
 
   <!-- [ Main Content ] start -->
   <div class="pc-container">
     <div class="pc-content">
-      <h2 class="mb-3 text-center">Users</h2>
+      <h2 class="mb-3">Edit Admins</h2>
+      <?php echo $msg;?>
+      <form method="post" action="handleEditAdmins">
+        <div class="col-lg-7">
+          <?php $i = 0; foreach($user as $u) : $i++?>
 
-      <div class="table-responsive">
-        <table class="table table-hover table-borderless mb-0">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Phone</th>
-              <th>Email</th>
-              <th>DOB</th>
-              <th>Acc Officer</th>
-              <th>Joined</th>
-            </tr>
-          </thead>
-          <tbody>
-          <?php $i = 0; foreach($users as $u) : $i++?>
-            <tr>
-              <td><?=$i?></td>
-              <td><?=$u['first_name']. " " .$u['last_name']?></td>
-              <td><?=$u['phone']?></td>
-              <td><?=$u['email']?></td>
-              <td><?=$u['DOB']?></td>
-              <td><?=$u['account_officer']?></td>
-              <td><?=$u['time_created']?></td>
-              <td><a href="editUsers?id=<?= $u['id']?>">Edit</a></td>
-              <td>
-                <a href="handleUserStatus?id=<?= $u['id']?>&status=<?= $u['status']?>&role=<?= $u['role']?>">
-                  <?= ($u['status'] === '0')  ? 'Activate': 'Deactivate'; ?>
-                </a>
-              </td>
-            </tr>
+          <label>First Name:</label><br>
+          <input type="text" name="fname" id="fname" class="form-control" value="<?= $u['first_name']?>" required autofocus><br>
+          
+          <label>Last Name:</label><br>
+          <input type="text" name="lname" id="lname" class="form-control" value="<?= $u['last_name']?>" required><br>
+
+          <label>Phone Number:</label><br>
+          <input type="tel" name="phone" id="phone" class="form-control" value="<?= $u['phone']?>" required><br>
+
+          <label>E-mail Address:</label><br>
+          <input type="email" name="email" id="email" class="form-control" value="<?= $u['email']?>" required><br>
+
+          <input type="hidden" name="admin_id" id="admin_id" class="form-control" value="<?= $u['id']?>" required><br>
+
+          <input type="submit" name="submit" id="submit" class="btn btn-warning"><br>
           <?php endforeach ;?>
-          </tbody>
-        </table>
-      </div>
+
+        </div>
+      </form>
     </div>
   </div>
   <!-- [ Main Content ] end -->
+
   <?php include "includes/footer.php" ;?>
 
   <!-- [Page Specific JS] end -->

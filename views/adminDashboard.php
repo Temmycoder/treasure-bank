@@ -1,5 +1,9 @@
-<?php  
-error_reporting(1); 
+<?php
+session_start();
+error_reporting(1);
+if(!isset($_SESSION['id'])){
+  header("location: /treasurebank/index");
+}
 $fname = $_SESSION['fname']; 
 ?>
 
@@ -31,7 +35,7 @@ $fname = $_SESSION['fname'];
   <!-- [Template CSS Files] -->
   <link rel="stylesheet" href="assets/css/style.css" id="main-style-link" >
   <link rel="stylesheet" href="assets/css/style-preset.css" >
-  <link rel="stylesheet" href="css/all.css" >
+  <link rel="stylesheet" href="assets/css/all.css" >
 
 </head>
 <!-- [Head] end -->
@@ -62,11 +66,6 @@ $fname = $_SESSION['fname'];
               <div class="page-header-title">
                 <h3 class="m-b-10">Welcome, <?php echo "$fname"?></h3>
               </div>
-              <!-- <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="javascript: void(0)">Dashboard</a></li>
-                <li class="breadcrumb-item" aria-current="page">Home</li>
-              </ul> -->
             </div>
           </div>
         </div>
@@ -77,8 +76,8 @@ $fname = $_SESSION['fname'];
           <div class="card">
             <div class="card-body">
               <h6 class="mb-2 f-w-400 text-muted">Total Users</h6>
-              <h4 class="mb-3">4,42,236 <span class="badge bg-light-primary border border-primary"><i
-                    class="ti ti-trending-up"></i> </span></h4>
+              <h4 class="mb-3">4,42,236 <span class="badge bg-light-primary border border-primary">
+                <i class="ti ti-trending-up"></i> 10%</span></h4>
               <p class="mb-0 text-muted text-sm">You made <span class="text-primary">35,000</span> this year</p>
             </div>
           </div>
@@ -214,7 +213,7 @@ $fname = $_SESSION['fname'];
   <script src="assets/js/fonts/custom-font.js"></script>
   <script src="assets/js/pcoded.js"></script>
   <script src="assets/js/plugins/feather.min.js"></script>
-  <script src="js/all.js"></script>
+  <script src="assets/js/plugins/all.js"></script>
 
 </body>
 <!-- [Body] end -->

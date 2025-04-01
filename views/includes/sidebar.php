@@ -1,10 +1,10 @@
 <nav class="pc-sidebar">
   <div class="navbar-wrapper">
     <div class="m-header">
-      <a href="/treasurebank/dashboard" class="b-brand text-primary">
+      <a href="/treasurebank/adminDashboard" class="b-brand text-primary">
         <img src="assets/images/logo-icon.svg" class="img-fluid " alt="logo">
       </a>
-      <a href="/treasurebank/dashboard" class="b-brand text-primary">
+      <a href="/treasurebank/adminDashboard" class="b-brand text-primary">
         <span class="fs-3 ms-2">Treasure</span>
       </a>
     </div>

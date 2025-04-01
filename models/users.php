@@ -9,7 +9,7 @@ class Users{
     $this->conn = $database->get_connection();
   }
 
-  public function create($fname, $lname, $email, $code, $phone, $dob, $gender){
+  public function create($fname, $lname, $email, $code, $phone, $dob, $gender, $fa){
     $select = $this->conn->query("SELECT * FROM $this->table WHERE email = '$email'");
     $check = $select->num_rows;
     if($check > 0 ){
@@ -19,8 +19,8 @@ class Users{
       $code_enc = password_hash($code, PASSWORD_DEFAULT);
       $firstName = ucfirst($fname);
       $lastName = ucfirst($lname);
-      $sql = "INSERT INTO $this->table (first_name, last_name, email, password, phone, DOB, gender, account_officer) 
-      VALUES('$firstName', '$lastName', '$email', '$code_enc', '$phone', '$dob', '$gender', '$acc_off')";
+      $sql = "INSERT INTO $this->table (first_name, last_name, email, password, phone, DOB, gender, account_officer, 2fa) 
+      VALUES('$firstName', '$lastName', '$email', '$code_enc', '$phone', '$dob', '$gender', '$acc_off', '$fa')";
       return $this->conn->query($sql);
     }
   }
