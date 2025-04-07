@@ -70,9 +70,27 @@ if(isset($_GET['success'])){
   <!-- [ Main Content ] start -->
   <div class="pc-container">
     <div class="pc-content">
-      <h2 class="mb-3">Set Interests and Fees</h2>
-
-     
+      <h2 class="mb-5 text-center">Apply New Fees</h2>
+      <div class="row">
+        <div class="col-6">
+          <form method="post" action="changeTransactionFee">
+            <label for="transaction"><h3>Transaction Fee:</h3></label>
+            <div class="col-lg-3">
+              <input type="number"% value="5" class="form-control"><br>
+              <input type="submit" class="text-white btn btn-warning">
+            </div>
+          </form>
+        </div>
+        <div class="col-6">
+          <form method="post" action="changeSavingsFee">
+            <label for="savings"><h3>Savings Fee:</h3></label>
+            <div class="col-lg-3">
+              <input type="number" value="5" class="form-control"><br>
+              <input type="submit" class="text-white btn btn-warning">
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
   <!-- [ Main Content ] end -->

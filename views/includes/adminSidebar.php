@@ -17,9 +17,9 @@
           </a>
         </li>
         <li class="pc-item">
-          <a href="/treasurebank/interests" class="pc-link">
+          <a href="/treasurebank/fees" class="pc-link">
             <span class="pc-micon"><i class="fa fa-money-bill-wave"></i></span>
-            <span class="pc-mtext">Interests & Fees</span>
+            <span class="pc-mtext">Fees</span>
           </a>
         </li>
         <li class="pc-item">

@@ -1,18 +1,20 @@
-<?php
-require_once "routes/read_packages.php";
-session_start();
-error_reporting(1);
+<?php 
+session_start(); 
 
 if(!isset($_SESSION['id'])){
   header("location: /treasurebank/index");
 }
-$msg = "";
-if(isset($_GET['error'])){
-  $msg = "<div class='alert alert-danger'>An Error occured! Try again later</div>";
+
+$bnfAcc = $_SESSION['bnfAcc'];
+$transferAmount = $_SESSION['transferAmount'];
+if(!isset($bnfAcc) && !isset($transferAmount)){
+  header("location: fundsTransfer");
 }
 
-if(isset($_GET['success'])){
-  $msg = "<div class='alert alert-success'>Loan Offer has been successfully added</div>";
+$msg = "";
+
+if(isset($_GET['error'])){
+  $msg = "<div class='alert alert-danger'>Password is incorrect</div>";
 }
 ?>
 
@@ -46,6 +48,11 @@ if(isset($_GET['success'])){
   <link rel="stylesheet" href="assets/css/style-preset.css" >
   <link rel="stylesheet" href="css/all.css" >
 
+  <style>
+    .justify-center{
+      justify-items: center;
+    }
+  </style>
 </head>
 <!-- [Head] end -->
 <!-- [Body] Start -->
@@ -59,52 +66,28 @@ if(isset($_GET['success'])){
 </div>
 <!-- [ Pre-loader ] End -->
  <!-- [ Sidebar Menu ] start -->
-<?php include "includes/adminSidebar.php" ;?>
+<?php include "includes/sidebar.php" ;?>
 <!-- [ Sidebar Menu ] end --> <!-- [ Header Topbar ] start -->
 <?php include "includes/header.php" ;?>
+
 <!-- [ Header ] end -->
 
   <!-- [ Main Content ] start -->
-  <div class="pc-container">
-    <div class="pc-content">
-      <h2 class="mb-3">New Loan Offer</h2>
-      <?php echo $msg;?>
-      <div class="col-lg-6">
-        <form method="post" class="container" action="/treasurebank/handleAddLoan">
-          <label for="">Package</label>
-          <select name="package" id="package" class="form-control">
-            <?php foreach($packages as $p):?>
-            <option value="<?=$p['name']?>"><?=$p['name']?></option>
-            <?php endforeach?>
-          </select><br>
-          <label>Loan Amount:</label><br>
-          <input type="number" name="amount" id="amount" class="form-control" required autofocus><br>
+  <div class="pc-container bg-white">
+    <a href="fundsTransfer" class="btn btn-dark">BACK</a>
+    <p><?=$msg?></p>
+    <div class="pc-content justify-center">
+      <h2 class="my-5 text-center">Enter Password</h2>
+      <h4>Confirm transaction of <?php echo number_format($transferAmount);?> to <?=$bnfAcc?></h4>
+      <form action="handleFundsTransfer" method="post" style="min-width: 400px;">
+        <label for="password">Password:</label>
+        <p><input type="text" name="password" class="form-control"></p>
 
-          <label>Interest Percentage:</label><br>
-          <input type="number" min="5" max="100" name="interest" id="interest" class="form-control" required><br>
-
-          <label>Tenor:</label><br>
-          <div class="row">
-            <div class="col-3">
-              <input type="number" placeholder="0" min="1" name="tenor_number" id="tenor_number" class="form-control" required>
-            </div>
-            <div class="col-9">
-              <select name="tenor_unit" id="tenor_unit" class="form-control" required>
-                <option value="days">Days</option>
-                <option value="weeks">Weeks</option>
-                <option value="months">Months</option>
-                <option value="years">Years</option>
-              </select>
-            </div>
-          </div><br>
-
-          <input type="submit" value="Submit" class="text-white btn btn-warning">
-        </form>
-      </div>
+        <input type="submit" value="Transfer" class="btn btn-warning">
+      </form>
     </div>
   </div>
   <!-- [ Main Content ] end -->
-
   <?php include "includes/footer.php" ;?>
 
   <!-- [Page Specific JS] end -->

@@ -22,9 +22,10 @@ if(isset($_GET['success'])){
   body{
     background-image: url('img/loginbg.png');
     background-attachment: fixed;
-    background-position: -250px -10px;
+    background-size: cover;
+    background-repeat: no-repeat;
     padding-bottom: 70px;
-  }
+   }
 
   .bg-light{
     border-radius: 10px;
@@ -40,13 +41,15 @@ if(isset($_GET['success'])){
     width: 100%;
     font-size: large;
   }
+  
+  .justify-center{
+    justify-items: center;
+  }
 </style>
 
 <body>
-  <div class="row container-fluid mt-5 pt-5">
-    <div class="col-1 col-md-3 col-lg-4"></div>
-
-    <div class="col-11 col-md-7 col-lg-5 bg-light pb-5 pt-5">
+  <div class="justify-center container-fluid mt-5 pt-5">
+    <div class="bg-light" style="max-width: 100%; min-width: 40%;">
       <span class="text-center"><h1 class="mb-5">Login</h1></span>
       <?php echo $msg; ?>
       <form method="post" autocomplete="off" action="/treasurebank/handleLogin">
@@ -58,30 +61,23 @@ if(isset($_GET['success'])){
         <input type="password" name="code" id="code" class="form-control" required><br>
 
         <div class="row mb-5">
-          <div class="col-auto col-lg-auto">
+          <div class="col-12 col-md-7">
             <a href="/treasurebank/signup" class="nav-link">Don't have an account? Sign Up</a>
           </div>
 
-          <div class="col-auto col-lg-2"></div>
-
-          <div class="col-auto col-lg-auto">
+          <div class="col-12 col-md-4 ms-auto">
             <a href="/treasurebank/reset_password" class="nav-lnk">Forgot Password?</a>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-auto col-lg-4"></div>
-          <div class="col-12 col-lg-4">
-            <input type="submit" name="login" value="Login" class="text-white btn btn-warning">
+        <div class="justify-center">
+          <div>
+            <input type="submit" name="login" value="Login" class="text-white btn btn-warning px-5">
           </div>
-          <div class="col-auto col-lg-4"></div>
         </div>
 
       </form>
     </div>
-
-    <div class="col-auto col-md-auto col-lg-3"></div>
   </div>
-
 </body>
 </html>

@@ -1,4 +1,5 @@
 <?php
+require_once "routes/read.php";
 session_start();
 error_reporting(1);
 if(!isset($_SESSION['id'])){
@@ -124,19 +125,25 @@ $fname = $_SESSION['fname'];
                 <table class="table table-hover table-borderless mb-0">
                   <thead>
                     <tr>
+                      <th>SN</th>
                       <th>Name</th>
                       <th>Account Number</th>
+                      <th>Savings</th>
                       <th>Transactions</th>
                       <th class="text-end">Joined</th>
                     </tr>
                   </thead>
                   <tbody>
+                    <?php $i=0; foreach($users as $u): $i++?>
                     <tr>
-                      <td><a href="#" class="text-muted"></a></td>
+                      <td><a href="#" class="text-muted"><?=$i?></a></td>
+                      <td><?=$u['first_name']?></td>
+                      <td></td>
                       <td></td>
                       <td></td>
                       <td></td>
                     </tr>
+                    <?php endforeach;?>
                   </tbody>
                 </table>
               </div>

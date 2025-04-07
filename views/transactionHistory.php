@@ -1,18 +1,8 @@
-<?php
-require_once "routes/read_packages.php";
-session_start();
-error_reporting(1);
-
+<?php 
+session_start(); 
+require_once "routes/transactionHistory.php";
 if(!isset($_SESSION['id'])){
   header("location: /treasurebank/index");
-}
-$msg = "";
-if(isset($_GET['error'])){
-  $msg = "<div class='alert alert-danger'>An Error occured! Try again later</div>";
-}
-
-if(isset($_GET['success'])){
-  $msg = "<div class='alert alert-success'>Loan Offer has been successfully added</div>";
 }
 ?>
 
@@ -46,6 +36,11 @@ if(isset($_GET['success'])){
   <link rel="stylesheet" href="assets/css/style-preset.css" >
   <link rel="stylesheet" href="css/all.css" >
 
+  <style>
+    .justify-center{
+      justify-items: center;
+    }
+  </style>
 </head>
 <!-- [Head] end -->
 <!-- [Body] Start -->
@@ -59,52 +54,47 @@ if(isset($_GET['success'])){
 </div>
 <!-- [ Pre-loader ] End -->
  <!-- [ Sidebar Menu ] start -->
-<?php include "includes/adminSidebar.php" ;?>
+<?php include "includes/sidebar.php" ;?>
 <!-- [ Sidebar Menu ] end --> <!-- [ Header Topbar ] start -->
 <?php include "includes/header.php" ;?>
+
 <!-- [ Header ] end -->
 
-  <!-- [ Main Content ] start -->
-  <div class="pc-container">
+  <div class="pc-container bg-white">
     <div class="pc-content">
-      <h2 class="mb-3">New Loan Offer</h2>
-      <?php echo $msg;?>
-      <div class="col-lg-6">
-        <form method="post" class="container" action="/treasurebank/handleAddLoan">
-          <label for="">Package</label>
-          <select name="package" id="package" class="form-control">
-            <?php foreach($packages as $p):?>
-            <option value="<?=$p['name']?>"><?=$p['name']?></option>
-            <?php endforeach?>
-          </select><br>
-          <label>Loan Amount:</label><br>
-          <input type="number" name="amount" id="amount" class="form-control" required autofocus><br>
-
-          <label>Interest Percentage:</label><br>
-          <input type="number" min="5" max="100" name="interest" id="interest" class="form-control" required><br>
-
-          <label>Tenor:</label><br>
-          <div class="row">
-            <div class="col-3">
-              <input type="number" placeholder="0" min="1" name="tenor_number" id="tenor_number" class="form-control" required>
-            </div>
-            <div class="col-9">
-              <select name="tenor_unit" id="tenor_unit" class="form-control" required>
-                <option value="days">Days</option>
-                <option value="weeks">Weeks</option>
-                <option value="months">Months</option>
-                <option value="years">Years</option>
-              </select>
-            </div>
-          </div><br>
-
-          <input type="submit" value="Submit" class="text-white btn btn-warning">
-        </form>
+      <div class="card tbl-card">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover table-borderless">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Amount</th>
+                  <th>Account Number</th>
+                  <th>Bank</th>
+                  <th>Message</th>
+                  <th>Date/Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php $i = 0; foreach($transHistory as $h): $i++?>
+                  <tr>
+                    <td><?= $i?></td>
+                    <td><?= number_format($h['amount'])?></td>
+                    <td><?= $h['receiver_no']?></td>
+                    <td><?= $h['receiver_bank']?></td>
+                    <td><?= $h['message']?></td>
+                    <td><?= $h['updated_at']?></td>
+                  </tr>
+                <?php endforeach?>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <!-- [ Main Content ] end -->
-
   <?php include "includes/footer.php" ;?>
 
   <!-- [Page Specific JS] end -->

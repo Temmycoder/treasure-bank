@@ -80,8 +80,8 @@ elseif($url[0] == 'editAdmins'){
 elseif($url[0] == 'handleEditAdmins'){
   require_once 'routes/Edit_admins.php';
 }
-elseif($url[0] == 'interests'){
-  require_once 'views/interests&fees.php';
+elseif($url[0] == 'fees'){
+  require_once 'views/fees.php';
 }
 elseif($url[0] == 'loans'){
   require_once 'views/loans.php';
@@ -89,9 +89,51 @@ elseif($url[0] == 'loans'){
 elseif($url[0] == 'addLoanOffer'){
   require_once 'views/addLoanOffer.php';
 }
+elseif($url[0] == 'handleAddLoan'){
+  require_once 'routes/Add_loan.php';
+}
+elseif($url[0] == 'changeTransactionFee'){
+  require_once 'routes/changeTransactionFee.php';
+}
+elseif($url[0] == 'changeSavingsFee'){
+  require_once 'routes/changeSavingsFee.php';
+}
+elseif($url[0] == 'fundsTransfer'){
+  require_once 'views/fundsTransfer.php';
+}
+elseif($url[0] == 'authTransfer'){
+  require_once 'views/authTransfer.php';
+}
+elseif($url[0] == 'handleFundsTransfer'){
+  require_once 'routes/fundsTransfer.php';
+}
+elseif($url[0] == 'transactionHistory'){
+  require_once 'views/transactionHistory.php';
+}
+elseif($url[0] == 'beneficiaries'){
+  require_once 'views/beneficiaries.php';
+}
+elseif($url[0] == ''){
+  require_once 'routes/.php';
+}
+elseif($url[0] == ''){
+  require_once 'routes/.php';
+}
+elseif($url[0] == ''){
+  require_once 'routes/.php';
+}
+elseif($url[0] == ''){
+  require_once 'routes/.php';
+}
+elseif($url[0] == ''){
+  require_once 'routes/.php';
+}
+elseif($url[0] == ''){
+  require_once 'routes/.php';
+}
 elseif($url[0] == ''){
   require_once 'routes/.php';
 }
 else{
-  echo "<h1 class='alert alert danger'>404 error: Page not found</h1>";
+  echo "<h1>404 error: Page not found</h1>";
 }

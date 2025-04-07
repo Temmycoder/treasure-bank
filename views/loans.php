@@ -1,5 +1,5 @@
 <?php 
-require_once 'routes/read_user.php';
+require_once 'routes/read_loans.php';
 
 session_start();
 error_reporting(1);
@@ -70,33 +70,24 @@ if(isset($_GET['success'])){
   <!-- [ Main Content ] start -->
   <div class="pc-container">
     <div class="pc-content">
-      <a href="addLoanOffer">Add a new loan offer</a>
-      <h2 class="text-center">LOANS</h2>
+      <h3><a href="addLoanOffer">Add a new loan offer</a></h3>
+      <h1 class="text-center mb-4">LOANS</h1>
       <div class="row">
         <!-- [ sample-page ] start -->
+         <?php foreach($loans as $loan): ?>
         <div class="col-md-6 col-xl-3">
           <div class="card">
             <div class="card-body">
-              <h6 class="mb-2 f-w-400 text-muted"></h6>
-              <h4 class="mb-3">5,000 <span class="badge bg-light-primary border border-primary">
-                +5%</span>
+              <h5 class="text-muted"><?=$loan['name']?></h5>
+              <h4 class="mb-3"><?= $loan['amount'] ?> <span class="badge bg-light-primary border border-primary">
+                +<?=$loan['interest']?>%</span>
               </h4>
+              <h5 class="f-w-400 text-muted">Tenor: <?=$loan['tenor']?></h5>
               <a href="">Remove</a>
             </div>
           </div>
         </div>
-        <!-- <div class="col-md-6 col-xl-3">
-          <div class="card">
-            <div class="card-body">
-              <h6 class="mb-2 f-w-400 text-muted"></h6>
-              <h4 class="mb-3">10,000 
-                <span class="badge bg-light-success border border-success">+10%</span>
-              </h4>
-              <a href="">Remove</a>
-
-            </div>
-          </div>
-        </div>
+        <?php endforeach; ?>
         <div class="col-md-6 col-xl-3">
           <div class="card">
             <div class="card-body">
@@ -262,7 +253,7 @@ if(isset($_GET['success'])){
 
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
   </div>

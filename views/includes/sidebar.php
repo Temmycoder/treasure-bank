@@ -28,13 +28,13 @@
           </a>
         </li>
         <li class="pc-item">
-          <a href="" class="pc-link">
+          <a href="/treasurebank/fundsTransfer" class="pc-link">
             <span class="pc-micon"><i class="fa fa-money-bill-transfer"></i></span>
             <span class="pc-mtext">Funds Transfer</span>
           </a>
         </li>
         <li class="pc-item">
-          <a href="" class="pc-link">
+          <a href="transactionHistory" class="pc-link">
             <span class="pc-micon"><i class="far fa-credit-card"></i></span>
             <span class="pc-mtext">Transaction History</span>
           </a>
@@ -46,7 +46,7 @@
           </a>
         </li>
         <li class="pc-item">
-          <a href="" class="pc-link">
+          <a href="beneficiaries" class="pc-link">
             <span class="pc-micon"><i class="fa fa-people-roof"></i></span>
             <span class="pc-mtext">Beneficiaries</span>
           </a>
