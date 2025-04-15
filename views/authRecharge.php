@@ -4,13 +4,9 @@ session_start();
 if(!isset($_SESSION['id'])){
   header("location: /treasurebank/index");
 }
-
-$bnfAcc = $_SESSION['bnfAcc'];
-$transferAmount = $_SESSION['transferAmount'];
-if(!isset($bnfAcc) && !isset($transferAmount)){
-  header("location: fundsTransfer");
-}
-
+$amount = $_SESSION['amount'];
+$phone = $_SESSION['phone'];
+$network = $_SESSION['network'];
 $msg = "";
 
 if(isset($_GET['error'])){
@@ -45,29 +41,29 @@ if(isset($_GET['error'])){
 
 <body data-pc-preset="preset-1" data-pc-direction="ltr" data-pc-theme="light">
   <!-- [ Pre-loader ] start -->
-<div class="loader-bg">
-  <div class="loader-track">
-    <div class="loader-fill"></div>
+  <div class="loader-bg">
+    <div class="loader-track">
+      <div class="loader-fill"></div>
+    </div>
   </div>
-</div>
-<!-- [ Pre-loader ] End -->
- <!-- [ Sidebar Menu ] start -->
-<?php include "includes/sidebar.php" ;?>
-<!-- [ Sidebar Menu ] end --> <!-- [ Header Topbar ] start -->
-<?php include "includes/header.php" ;?>
+  <!-- [ Pre-loader ] End -->
+  <!-- [ Sidebar Menu ] start -->
+  <?php include "includes/sidebar.php" ;?>
+  <!-- [ Sidebar Menu ] end --> <!-- [ Header Topbar ] start -->
+  <?php include "includes/header.php" ;?>
 
-<!-- [ Header ] end -->
+  <!-- [ Header ] end -->
 
   <!-- [ Main Content ] start -->
   <div class="pc-container bg-white">
-    <a href="fundsTransfer" class="btn btn-dark">BACK</a>
+    <a href="buyAirtime" class="btn btn-dark">BACK</a>
     <p><?=$msg?></p>
     <div class="pc-content justify-center">
       <h2 class="my-5 text-center">Enter Password</h2>
-      <h4>Confirm transaction of <?php echo number_format($transferAmount);?> to <?=$bnfAcc?></h4>
-      <form action="handleFundsTransfer" method="post" style="min-width: 400px;">
+      <h4>Confirm recharge of <?php echo number_format($amount);?> to <?=$phone; echo " ($network)"?></h4>
+      <form action="handleRecharge" method="post" style="min-width: 400px;">
         <label for="password">Password:</label>
-        <p><input type="password" name="password" class="form-control" required></p>
+        <p><input type="password" name="password" class="form-control" required autofocus></p>
 
         <input type="submit" value="Transfer" class="btn btn-warning">
       </form>

@@ -43,7 +43,7 @@ class Admin{
 
   public function read(){
     $sql = "SELECT * FROM $this->table WHERE role = 'user'";
-    $result = $this->conn->query(query: $sql);
+    $result = $this->conn->query($sql);
     return $result->fetch_all(MYSQLI_ASSOC);
   }
 

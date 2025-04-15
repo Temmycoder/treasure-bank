@@ -1,10 +1,10 @@
 <nav class="pc-sidebar">
   <div class="navbar-wrapper">
     <div class="m-header">
-      <a href="/treasurebank/dashboard" class="b-brand text-primary">
+      <a href="/treasurebank/adminDashboard" class="b-brand text-primary">
         <img src="assets/images/logo-icon.svg" class="img-fluid " alt="logo">
       </a>
-      <a href="/treasurebank/dashboard" class="b-brand text-primary">
+      <a href="/treasurebank/adminDashboard" class="b-brand text-primary">
         <span class="fs-3 ms-2">Treasure</span>
       </a>
     </div>
@@ -57,7 +57,7 @@
             <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
           </a>
           <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="/treasurebank/edit_profile">Edit Profile</a></li>
+            <li class="pc-item"><a class="fa fa-edit" href="/treasurebank/edit_profile">Edit Profile</a></li>
             <li class="pc-item"><a class="pc-link" href="/treasurebank/change_password">Change Password</a></li>
           </ul>
         </li>

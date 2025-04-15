@@ -4,6 +4,16 @@ require_once "routes/transactionHistory.php";
 if(!isset($_SESSION['id'])){
   header("location: /treasurebank/index");
 }
+
+$msg = '';
+
+if(isset($_GET['success'])){
+  $msg = "<div class='alert alert-success'>Beneficiary has been added</div>";
+}
+
+if(isset($_GET['error'])){
+  $msg = "<div class='alert alert-danger'>Task was unsuccessful! Try Again Later</div>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -20,27 +30,8 @@ if(!isset($_SESSION['id'])){
   <meta name="keywords" content="">
   <meta name="author" content="">
 
-  <!-- [Favicon] icon -->
-  <link rel="icon" href="assets/images/favicon.svg" type="image/x-icon"> <!-- [Google Font] Family -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" id="main-font-link">
-  <!-- [Tabler Icons] https://tablericons.com -->
-  <link rel="stylesheet" href="assets/fonts/tabler-icons.min.css" >
-  <!-- [Feather Icons] https://feathericons.com -->
-  <link rel="stylesheet" href="assets/fonts/feather.css" >
-  <!-- [Font Awesome Icons] https://fontawesome.com/icons -->
-  <link rel="stylesheet" href="assets/fonts/fontawesome.css" >
-  <!-- [Material Icons] https://fonts.google.com/icons -->
-  <link rel="stylesheet" href="assets/fonts/material.css" >
-  <!-- [Template CSS Files] -->
-  <link rel="stylesheet" href="assets/css/style.css" id="main-style-link" >
-  <link rel="stylesheet" href="assets/css/style-preset.css" >
-  <link rel="stylesheet" href="css/all.css" >
+  <?php include 'includes/css.php'?>
 
-  <style>
-    .justify-center{
-      justify-items: center;
-    }
-  </style>
 </head>
 <!-- [Head] end -->
 <!-- [Body] Start -->
@@ -62,49 +53,36 @@ if(!isset($_SESSION['id'])){
 
   <div class="pc-container bg-white">
     <div class="pc-content">
-      <div class="card tbl-card">
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-hover table-borderless">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Amount</th>
-                  <th>Account Number</th>
-                  <th>Bank</th>
-                  <th>Message</th>
-                  <th>Recent Transaction</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php $i = 0; foreach($transHistory as $h): $i++?>
-                  <tr>
-                    <td><?= $i?></td>
-                    <td><?= number_format($h['amount'])?></td>
-                    <td><?= $h['receiver_no']?></td>
-                    <td><?= $h['receiver_bank']?></td>
-                    <td><?= $h['updated_at']?></td>
-                  </tr>
-                <?php endforeach?>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+      <?=$msg?>
+      <h3 class="my-4">Add A Beneficiary</h3>
+      <form action="handleAddBeneficiary" method="post" style="max-width: 500px;">
+        <label for="bnfAcc">Account Number</label>
+        <p><input type="text" name="bnfAcc" class="form-control" autofocus required></p>
+
+        <label for="bnfBank">Bank Name</label>
+        <p>
+          <select name="bnfBank" class="form-control" required>
+            <option value=""></option>
+            <option value="Treasure">Treasure</option>
+            <option value="FCMB">FCMB</option>
+            <option value="wema">wema</option>
+            <option value="gtb">gtb</option>
+            <option value="uba">uba</option>
+            <option value="opay">opay</option>
+            <option value="palmpay">palmpay</option>
+            <option value="access">access</option>
+            <option value="diamond">diamond</option>
+            <option value="crest">crest</option>
+          </select>
+        </p>
+        <input type="submit" class="btn btn-warning">
+      </form>
     </div>
   </div>
   <!-- [ Main Content ] end -->
   <?php include "includes/footer.php" ;?>
 
-  <!-- [Page Specific JS] end -->
-  <!-- Required Js -->
-  <script src="assets/js/plugins/popper.min.js"></script>
-  <script src="assets/js/plugins/simplebar.min.js"></script>
-  <script src="assets/js/plugins/bootstrap.min.js"></script>
-  <script src="assets/js/fonts/custom-font.js"></script>
-  <script src="assets/js/pcoded.js"></script>
-  <script src="assets/js/plugins/feather.min.js"></script>
-  <script src="js/all.js"></script>
+  <?php include 'includes/js.php'?>
 
 </body>
 <!-- [Body] end -->

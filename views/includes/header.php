@@ -9,12 +9,12 @@ $name = $_SESSION['fname']. " " .$_SESSION['lname'];
         <!-- ======= Menu collapse Icon ===== -->
         <li class="pc-h-item pc-sidebar-collapse">
           <a href="#" class="pc-head-link ms-0" id="sidebar-hide">
-            <i class="ti ti-menu-2"></i>
+            <i class="fa fa-bars"></i>
           </a>
         </li>
         <li class="pc-h-item pc-sidebar-popup">
           <a href="#" class="pc-head-link ms-0" id="mobile-collapse">
-            <i class="ti ti-menu-2"></i>
+            <i class="fa fa-bars"></i>
           </a>
         </li>
         <li class="dropdown pc-h-item d-inline-flex d-md-none">
@@ -26,7 +26,7 @@ $name = $_SESSION['fname']. " " .$_SESSION['lname'];
             aria-haspopup="false"
             aria-expanded="false"
           >
-            <i class="ti ti-search"></i>
+            <i class="fa fa-search"></i>
           </a>
           <div class="dropdown-menu pc-h-dropdown drp-search">
             <form class="px-3">
@@ -57,12 +57,12 @@ $name = $_SESSION['fname']. " " .$_SESSION['lname'];
             aria-haspopup="false"
             aria-expanded="false"
           >
-            <i class="ti ti-mail"></i>
+            <i class="far fa-envelope"></i>
           </a>
           <div class="dropdown-menu dropdown-notification dropdown-menu-end pc-h-dropdown">
             <div class="dropdown-header d-flex align-items-center justify-content-between">
               <h5 class="m-0">Message</h5>
-              <a href="#!" class="pc-head-link bg-transparent"><i class="ti ti-x text-danger"></i></a>
+              <a href="#!" class="pc-head-link bg-transparent"><i class="fa fa-x text-danger"></i></a>
             </div>
             <div class="dropdown-divider"></div>
             <div class="dropdown-header px-0 text-wrap header-notification-scroll position-relative" style="max-height: calc(100vh - 215px)">
@@ -121,7 +121,7 @@ $name = $_SESSION['fname']. " " .$_SESSION['lname'];
                 <div class="flex-grow-1 ms-3">
                   <h6 class="mb-1"><?php echo $name; ?></h6>
                 </div>
-                <a href="/treasurebank/logout" class="pc-head-link bg-transparent"><i class="ti ti-power text-danger"></i></a>
+                <a href="/treasurebank/logout" class="pc-head-link bg-transparent"><i class="fa fa-power text-danger"></i></a>
               </div>
             </div>
             <ul class="nav drp-tabs nav-fill nav-tabs" id="mydrpTab" role="tablist">
@@ -135,7 +135,7 @@ $name = $_SESSION['fname']. " " .$_SESSION['lname'];
                   role="tab"
                   aria-controls="drp-tab-1"
                   aria-selected="true"
-                  ><i class="ti ti-user"></i> Profile</button
+                  ><i class="fa fa-user"></i> Profile</button
                 >
               </li>
               <li class="nav-item" role="presentation">
@@ -148,44 +148,44 @@ $name = $_SESSION['fname']. " " .$_SESSION['lname'];
                   role="tab"
                   aria-controls="drp-tab-2"
                   aria-selected="false"
-                  ><i class="ti ti-settings"></i> Setting</button
+                  ><i class="fa fa-gear"></i> Setting</button
                 >
               </li>
             </ul>
             <div class="tab-content" id="mysrpTabContent">
               <div class="tab-pane fade show active" id="drp-tab-1" role="tabpanel" aria-labelledby="drp-t1" tabindex="0">
                 <a href="/treasurebank/edit_profile" class="dropdown-item">
-                  <i class="ti ti-edit-circle"></i>
+                  <i class="fa fa-edit"></i>
                   <span>Edit Profile</span>
                 </a>
                 <a href="/treasurebank/view_profile" class="dropdown-item">
-                  <i class="ti ti-user"></i>
+                  <i class="fa fa-eye"></i>
                   <span>View Profile</span>
                 </a>
                 <a href="/treasurebank/logout" class="dropdown-item">
-                  <i class="ti ti-power"></i>
+                  <i class="fa fa-power"></i>
                   <span>Logout</span>
                 </a>
               </div>
               <div class="tab-pane fade" id="drp-tab-2" role="tabpanel" aria-labelledby="drp-t2" tabindex="0">
                 <a href="#!" class="dropdown-item">
-                  <i class="ti ti-help"></i>
+                  <i class="fa fa-hands-helping"></i>
                   <span>Support</span>
                 </a>
                 <a href="#!" class="dropdown-item">
-                  <i class="ti ti-user"></i>
+                  <i class="fa fa-user"></i>
                   <span>Account Settings</span>
                 </a>
                 <a href="#!" class="dropdown-item">
-                  <i class="ti ti-lock"></i>
+                  <i class="fa fa-lock"></i>
                   <span>Privacy Center</span>
                 </a>
                 <a href="#!" class="dropdown-item">
-                  <i class="ti ti-messages"></i>
+                  <i class="fa fa-message"></i>
                   <span>Feedback</span>
                 </a>
                 <a href="#!" class="dropdown-item">
-                  <i class="ti ti-list"></i>
+                  <i class="fa fa-list"></i>
                   <span>History</span>
                 </a>
               </div>

@@ -4,8 +4,6 @@ session_start();
 if(!isset($_SESSION['id'])){
   header("location: /treasurebank/index");
 }
-error_reporting(1); 
-$fname = $_SESSION['fname']; 
 ?>
 
 <!DOCTYPE html>
@@ -43,54 +41,49 @@ $fname = $_SESSION['fname'];
 
 <!-- [ Header ] end -->
 
-  <!-- [ Main Content ] start -->
-  <div class="pc-container">
+  <div class="pc-container bg-white"><br>
+    <!-- [ Main Content ] -->
     <div class="pc-content">
-      
       <div class="row">
         <!-- [ sample-page ] start -->
         <div class="col-md-6 col-xl-3">
-          <div class="card">
+          <div class="card bg-primary border border-primary">
             <div class="card-body">
-              <h6 class="mb-2 f-w-400 text-muted">Current Balance</h6>
-              <h4 class="mb-3">4,42,236 <span class="badge bg-light-primary border border-primary"><i
-                    class="ti ti-trending-up"></i> </span></h4>
-              <p class="mb-0 text-muted text-sm">You made <span class="text-primary">35,000</span> this year</p>
+              <h4 class="mb-3 text-white">Buy Airtime</h4>
+              <h6 class="mb-2 f-w-400 text-muted"></h6>
+              <a href="buyAirtime" class="btn btn-light mt-3">Visit</a>
             </div>
           </div>
         </div>
         <div class="col-md-6 col-xl-3">
-          <div class="card">
+          <div class="card bg-success border border-success">
             <div class="card-body">
-              <h6 class="mb-2 f-w-400 text-muted">Total withdrawals</h6>
-              <h4 class="mb-3">70,000 <span class="badge bg-light-success border border-success"><i
-                    class="ti ti-trending-up"></i> </span></h4>
-              <p class="mb-0 text-muted text-sm">You made an extra <span class="text-success">8,900</span> this year</p>
+              <h4 class="mb-3 text-white">Buy Data</h4>
+              <h6 class="mb-2 f-w-400 text-muted"></h6>
+              <a href="buyData" class="btn btn-light mt-3">Visit</a>
             </div>
           </div>
         </div>
         <div class="col-md-6 col-xl-3">
-          <div class="card">
+          <div class="card bg-warning border border-warning">
             <div class="card-body">
-              <h6 class="mb-2 f-w-400 text-muted">Total Deposits</h6>
-              <h4 class="mb-3">0 <span class="badge bg-light-warning border border-warning"><i
-                    class="ti ti-trending-down"></i> </span></h4>
-              <p class="mb-0 text-muted text-sm">You made an extra <span class="text-warning">1,943</span> this year</p>
+              <h4 class="mb-3 text-white">Tv Subscription</h4>
+              <h6 class="mb-2 f-w-400 text-muted"></h6>
+              <a href="" class="btn btn-light mt-3">Visit</a>
             </div>
           </div>
         </div>
         <div class="col-md-6 col-xl-3">
-          <div class="card">
+          <div class="card bg-danger border border-danger">
             <div class="card-body">
-              <h6 class="mb-2 f-w-400 text-muted">Loans balance</h6>
-              <h4 class="mb-3">$35,078 <span class="badge bg-light-danger border border-danger"><i
-                    class="ti ti-trending-down"></i> </span></h4>
-              <p class="mb-0 text-muted text-sm">You made an extra <span class="text-danger">$20,395</span> this year
+            <h4 class="mb-3 text-white">Electricity Bill</h4>
+            <h6 class="mb-2 f-w-400 text-muted"></h6>
+            <a href="" class="btn btn-light mt-3">Visit</a>
+              <p class="mb-0 text-muted text-sm">You owe <span class="">$20,395</span> this year
               </p>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>

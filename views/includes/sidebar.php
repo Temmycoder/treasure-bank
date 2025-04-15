@@ -1,10 +1,10 @@
 <nav class="pc-sidebar">
   <div class="navbar-wrapper">
     <div class="m-header">
-      <a href="/treasurebank/adminDashboard" class="b-brand text-primary">
+      <a href="/treasurebank/dashboard" class="b-brand text-primary">
         <img src="assets/images/logo-icon.svg" class="img-fluid " alt="logo">
       </a>
-      <a href="/treasurebank/adminDashboard" class="b-brand text-primary">
+      <a href="/treasurebank/dashboard" class="b-brand text-primary">
         <span class="fs-3 ms-2">Treasure</span>
       </a>
     </div>
@@ -16,11 +16,6 @@
             <span class="pc-mtext">Dashboard</span>
           </a>
         </li>
-
-        <!-- <li class="pc-item pc-caption">
-          <label>Other Pages</label>
-          <i class="ti ti-dashboard"></i>
-        </li> -->
         <li class="pc-item">
           <a href="/treasurebank/account_details" class="pc-link">
             <span class="pc-micon"><i class="fa fa-money-bill-wave"></i></span>
@@ -40,7 +35,7 @@
           </a>
         </li>
         <li class="pc-item">
-          <a href="" class="pc-link">
+          <a href="billPayments" class="pc-link">
             <span class="pc-micon"><i class="fa fa-receipt"></i></span>
             <span class="pc-mtext">Bill Payments</span>
           </a>

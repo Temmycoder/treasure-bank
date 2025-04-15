@@ -10,12 +10,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
   $message = $_SESSION['message'];
 
   if($_SESSION['code'] == $_POST['password']){
-
-    $newTransfer = $transfer->newTransfer($transferAmount, $bnfAcc, $bnfBank, $message);
+    $newTransfer = $transfer->newTransfer($transferAmount, $bnfAcc, $bnfBank, 
+    $message);
     if($newTransfer){
       header('Location: fundsTransfer?success=true');
     }else{
-      header('Location: authTransfer?error=1');
+      header('Location: fundsTransfer?error=1');
     }
+  }else{
+    header('Location: authTransfer?error=1');
   }
 }

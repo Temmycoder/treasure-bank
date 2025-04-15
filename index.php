@@ -113,23 +113,35 @@ elseif($url[0] == 'transactionHistory'){
 elseif($url[0] == 'beneficiaries'){
   require_once 'views/beneficiaries.php';
 }
+elseif($url[0] == 'handleAddBeneficiary'){
+  require_once 'routes/addBeneficiary.php';
+}
+elseif($url[0] == 'billPayments'){
+  require_once 'views/billPayments.php';
+}
+elseif($url[0] == 'billPayments'){
+  require_once 'routes/billPayments.php';
+}
+elseif($url[0] == 'buyAirtime'){
+  require_once 'views/buyAirtime.php';
+}
+elseif($url[0] == 'authRecharge'){
+  require_once 'views/authRecharge.php';
+}
+elseif($url[0] == 'handleRecharge'){
+  require_once 'routes/recharge.php';
+}
+elseif($url[0] == 'buyData'){
+  require_once 'views/buyData.php';
+}
 elseif($url[0] == ''){
-  require_once 'routes/.php';
+  require_once 'views/.php';
 }
 elseif($url[0] == ''){
   require_once 'routes/.php';
 }
 elseif($url[0] == ''){
-  require_once 'routes/.php';
-}
-elseif($url[0] == ''){
-  require_once 'routes/.php';
-}
-elseif($url[0] == ''){
-  require_once 'routes/.php';
-}
-elseif($url[0] == ''){
-  require_once 'routes/.php';
+  require_once 'views/.php';
 }
 elseif($url[0] == ''){
   require_once 'routes/.php';
