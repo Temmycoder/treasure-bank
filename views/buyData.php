@@ -7,19 +7,13 @@ if(!isset($_SESSION['id'])){
 error_reporting(1); 
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-  $_SESSION['amount'] = $_POST['amount'];
+  $_SESSION['dataSize'] = $_POST['dataSize'];
   $_SESSION['phone'] = $_POST['phone'];
   $_SESSION['network'] = $_POST['network'];
-  header('location: authRecharge');
+  header('location: PickDataPlan');
 }
 $msg = '';
 
-if(isset($_GET['success'])){
-  $msg = "<div class='alert alert-success'>Recharge successful</div>";
-}
-if(isset($_GET['error'])){
-  $msg = "<div class='alert alert-danger'>Insufficient Balance</div>";
-}
 ?>
 
 <!DOCTYPE html>
@@ -60,84 +54,35 @@ if(isset($_GET['error'])){
   <div class="pc-container bg-white"><br>
     <!-- [ Main Content ] start --><?=$msg;?>
     <div class="pc-content">
-      <!-- <div class="row">
-        [ sample-page ] start
-        <div class="col-md-6 col-xl-3">
-          <div class="card bg-primary border border-primary">
+      <div class="row">
+        <div class="col-md-6 col-xl-4">
+          <div class="card bg-warning">
             <div class="card-body">
-              <h4 class="mb-3 text-white">100 MB</h4>
-              <h6 class="mb-2 f-w-400 text-muted"></h6>
+              <h2 class="mb-3 text-white">Daily Plan</h2>
+              <h5 class="mb-4 f-w-400 text-white">Buy Offers that last a day before expiree</h5>
+              <p><a href="PickDataPlan?plan=daily" class="btn btn-light">Daily Plan</a></p>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-xl-3">
-          <div class="card bg-success border border-success">
+        <div class="col-md-6 col-xl-4">
+          <div class="card bg-info">
             <div class="card-body">
-              <h4 class="mb-3 text-white"></h4>
-              <h6 class="mb-2 f-w-400 text-muted"></h6>
+              <h2 class="mb-3 text-white">Weekly Plan</h2>
+              <h5 class="mb-4 f-w-400 text-white">Buy Offers that last a week before expiree</h5>
+              <p><a href="PickDataPlan?plan=weekly" class="btn btn-light">Weekly Plan</a></p>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-xl-3">
-          <div class="card bg-warning border border-warning">
+        <div class="col-md-6 col-xl-4">
+          <div class="card bg-primary">
             <div class="card-body">
-              <h4 class="mb-3 text-white"></h4>
-              <h6 class="mb-2 f-w-400 text-muted"></h6>
+              <h2 class="mb-3 text-white">Monthly Plan</h2>
+              <h5 class="mb-4 f-w-400 text-white">Buy Offers that last a month before expiree</h5>
+              <p><a href="PickDataPlan?plan=monthly" class="btn btn-light">Monthly Plan</a></p>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-xl-3">
-          <div class="card bg-danger border border-danger">
-            <div class="card-body">
-              <h4 class="mb-3 text-white"></h4>
-              <h6 class="mb-2 f-w-400 text-muted"></h6>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      <h2>Recharge Mobile Data</h2>
-      <form method="post" style="max-width: 500px;">
-        <label for="amount">Data Size:</label>
-        <p>
-          <select name="network" class="form-control" required>
-            <option></option>
-            <option value="100mb">100 MB</option>
-            <option value="200mb">200 MB</option>
-            <option value="500mb">500 MB</option>
-            <option value="700mb">700 MB</option>
-            <option value="1gb">1 GB</option>
-            <option value="1.5gb">1.5 GB</option>
-            <option value="2gb">2 GB</option>
-            <option value="2.5gb">2.5 GB</option>
-            <option value="5gb">5 GB</option>
-            <option value="7gb">7 GB</option>
-            <option value="10gb">10 GB</option>
-            <option value="15gb">15 GB</option>
-            <option value="20gb">20 GB</option>
-            <option value="25gb">25 GB</option>
-            <option value="30gb">30 GB</option>
-          </select>
-        </p>
-
-        <label for="phone">Phone Number:</label>
-        <p><input type="tel" name="phone" required class="form-control"></p>
-
-        <label for="network">Network Provider:</label>
-        <p>
-          <select name="network" class="form-control" required>
-            <option></option>
-            <option value="mtn">MTN</option>
-            <option value="airtel">Airtel</option>
-            <option value="glo">GLO</option>
-            <option value="etisalat">Etisalat</option>
-            <option value="glo">9Mobile</option>
-          </select>
-        </p>
-
-        <div class="text-center">
-          <input type="submit" value="Submit" class="btn btn-warning px-4" required>
-        </div>
-      </form>
+      </div>
     </div>
   </div>
   <!-- [ Main Content ] end -->

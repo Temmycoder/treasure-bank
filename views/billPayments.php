@@ -79,8 +79,6 @@ if(!isset($_SESSION['id'])){
             <h4 class="mb-3 text-white">Electricity Bill</h4>
             <h6 class="mb-2 f-w-400 text-muted"></h6>
             <a href="" class="btn btn-light mt-3">Visit</a>
-              <p class="mb-0 text-muted text-sm">You owe <span class="">$20,395</span> this year
-              </p>
             </div>
           </div>
         </div>

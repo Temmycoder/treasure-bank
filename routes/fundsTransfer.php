@@ -1,15 +1,19 @@
 <?php
+require_once 'controllers/TransactionPinController.php';
+$pinController = new TransactionPinController();
+$pin = $pinController->readPin();
+foreach ($pin as $p){}
 
 require_once 'controllers/TransferController.php';
 $transfer = new TransferController();
-session_start();
+
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
   $bnfAcc = $_SESSION['bnfAcc'];
   $bnfBank = $_SESSION['bnfBank'];
   $transferAmount = $_SESSION['transferAmount'];
   $message = $_SESSION['message'];
 
-  if($_SESSION['code'] == $_POST['password']){
+  if($p['transactionPin'] == $_POST['password']){
     $newTransfer = $transfer->newTransfer($transferAmount, $bnfAcc, $bnfBank, 
     $message);
     if($newTransfer){
@@ -18,6 +22,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
       header('Location: fundsTransfer?error=1');
     }
   }else{
-    header('Location: authTransfer?error=1');
+    header("Location: authTransfer?error=1");
   }
 }

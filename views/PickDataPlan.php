@@ -1,19 +1,32 @@
 <?php 
+require_once 'routes/dataOffers.php';
 session_start(); 
 
 if(!isset($_SESSION['id'])){
   header("location: /treasurebank/index");
 }
-$amount = $_SESSION['amount'];
-$phone = $_SESSION['phone'];
-$network = $_SESSION['network'];
 $msg = "";
 
-if(!isset($phone) && !isset($amount) && !isset($network)){
-  header("location: buyAirtime");
+if(isset($_GET['success'])){
+  $msg = "<div class='alert alert-success'>Subscription successful</div>";
 }
 if(isset($_GET['error'])){
-  $msg = "<div class='alert alert-danger'>Password is incorrect</div>";
+  $msg = "<div class='alert alert-danger'>Insufficient Balance</div>";
+}
+
+if(isset($_GET['plan'])){
+  switch($_GET['plan']){
+    case 'daily':;
+      break;
+    case 'weekly':;
+      break;
+    case 'monthly':;
+      break;
+    default: header('location: buyData');
+  }
+  $_SESSION['plan'] = $_GET['plan'];
+}else{
+  header('location: billPayments');
 }
 ?>
 
@@ -33,11 +46,6 @@ if(isset($_GET['error'])){
 
   <?php include 'includes/css.php'?>
 
-  <style>
-    .justify-center{
-      justify-items: center;
-    }
-  </style>
 </head>
 <!-- [Head] end -->
 <!-- [Body] Start -->
@@ -59,17 +67,31 @@ if(isset($_GET['error'])){
 
   <!-- [ Main Content ] start -->
   <div class="pc-container bg-white">
-    <a href="buyAirtime" class="btn btn-dark">BACK</a>
+    <a href="buyData" class="btn btn-dark">BACK</a>
     <p><?=$msg?></p>
-    <div class="pc-content justify-center">
-      <h2 class="my-5 text-center">Enter Password</h2>
-      <h4>Confirm recharge of <?php echo number_format($amount);?> to <?=$phone; echo " ($network)"?></h4>
-      <form action="handleRecharge" method="post" class="col-lg-5 col-md-6 col-12">
-        <label for="password">Password:</label>
-        <p><input type="password" name="password" class="form-control" required autofocus></p>
-
-        <input type="submit" value="Transfer" class="btn btn-warning">
-      </form>
+    <div class="pc-content">
+      <h1 class="text-center"><?= ucwords($_GET['plan'])?> Plans</h1>
+      <table class="table table-hover">
+        <ul type="square">
+          <?php 
+            foreach($dataOffers as $d){
+              if($d['tenor'] == $_GET['plan']){
+                echo "
+                <tr>
+                  <td>
+                    <h4>
+                      $d[data_size] @ N$d[amount] 
+                    </h4>
+                  </td>
+                  <td>
+                    <a href='authDataSub?size=$d[data_size]&amount=$d[amount] ' class='btn btn-primary ms-5'>Buy</a>
+                  </td>
+                </tr>";
+              }
+            }
+          ?>
+        </ul>
+      </table>
     </div>
   </div>
   <!-- [ Main Content ] end -->

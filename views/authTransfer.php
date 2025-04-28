@@ -63,11 +63,11 @@ if(isset($_GET['error'])){
     <a href="fundsTransfer" class="btn btn-dark">BACK</a>
     <p><?=$msg?></p>
     <div class="pc-content justify-center">
-      <h2 class="my-5 text-center">Enter Password</h2>
+      <h2 class="my-5 text-center">Enter Transaction Pin</h2>
       <h4>Confirm transaction of <?php echo number_format($transferAmount);?> to <?=$bnfAcc?></h4>
-      <form action="handleFundsTransfer" method="post" style="min-width: 400px;">
-        <label for="password">Password:</label>
-        <p><input type="password" name="password" class="form-control" required></p>
+      <form action="handleFundsTransfer" method="post" class="col-lg-5 col-md-6 col-12">
+        <label for="password">Pin:</label>
+        <p><input type="password" name="password" placeholder="* * * * * *" class="form-control" required></p>
 
         <input type="submit" value="Transfer" class="btn btn-warning">
       </form>

@@ -61,6 +61,7 @@
           <ul class="pc-submenu">
             <li class="pc-item"><a class="pc-link" href="/treasurebank/edit_profile">Edit Profile</a></li>
             <li class="pc-item"><a class="pc-link" href="/treasurebank/change_password">Change Password</a></li>
+            <li class="pc-item"><a class="pc-link" href="/treasurebank/transactionPin">Set Transaction Pin</a></li>
           </ul>
         </li>
         <li class="pc-item">

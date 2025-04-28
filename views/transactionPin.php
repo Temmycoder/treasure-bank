@@ -1,19 +1,18 @@
 <?php 
+
 session_start(); 
+error_reporting(1); 
 
 if(!isset($_SESSION['id'])){
   header("location: /treasurebank/index");
 }
-$amount = $_SESSION['amount'];
-$phone = $_SESSION['phone'];
-$network = $_SESSION['network'];
 $msg = "";
 
-if(!isset($phone) && !isset($amount) && !isset($network)){
-  header("location: buyAirtime");
-}
 if(isset($_GET['error'])){
-  $msg = "<div class='alert alert-danger'>Password is incorrect</div>";
+  $msg = "<div class='alert alert-danger'>An Error occured! Try again later</div>";
+}
+if(isset($_GET['success'])){
+  $msg = "<div class='alert alert-success'>Profile info was successfully changed</div>";
 }
 ?>
 
@@ -31,8 +30,9 @@ if(isset($_GET['error'])){
   <meta name="keywords" content="">
   <meta name="author" content="">
 
+  <!-- [Favicon] icon -->
+  <link rel="icon" href="assets/images/favicon.svg" type="image/x-icon"> <!-- [Google Font] Family -->
   <?php include 'includes/css.php'?>
-
   <style>
     .justify-center{
       justify-items: center;
@@ -59,16 +59,22 @@ if(isset($_GET['error'])){
 
   <!-- [ Main Content ] start -->
   <div class="pc-container bg-white">
-    <a href="buyAirtime" class="btn btn-dark">BACK</a>
-    <p><?=$msg?></p>
+    <?php echo $msg;?>
     <div class="pc-content justify-center">
-      <h2 class="my-5 text-center">Enter Password</h2>
-      <h4>Confirm recharge of <?php echo number_format($amount);?> to <?=$phone; echo " ($network)"?></h4>
-      <form action="handleRecharge" method="post" class="col-lg-5 col-md-6 col-12">
-        <label for="password">Password:</label>
-        <p><input type="password" name="password" class="form-control" required autofocus></p>
+      <div class="page-header mt-5 mb-3">
+        <div class="page-block">
+          <div class="page-header-title">
+            <h2>Set a Pin for transactions</h2>
+          </div>
+        </div>
+      </div>
+      <form method="post" action="handleTransactionPin" class="col-lg-5 col-md-6 col-12">
+        <h3><label for="pin">Pin:</label></h3>
+        <h5 class="text-danger ">*Six characters required*</h5>
+        <h5 class="text-danger">*Only Numbers allowed*</h5>
+        <input type="password" pattern="[0-9]{6}" name="pin" class="form-control" required autofocus><br>
 
-        <input type="submit" value="Transfer" class="btn btn-warning">
+        <input type="submit" name="submit" id="submit" class="btn btn-warning">
       </form>
     </div>
   </div>

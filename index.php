@@ -134,6 +134,33 @@ elseif($url[0] == 'handleRecharge'){
 elseif($url[0] == 'buyData'){
   require_once 'views/buyData.php';
 }
+elseif($url[0] == 'PickDataPlan'){
+  require_once 'views/PickDataPlan.php';
+}
+elseif($url[0] == 'authDataSub'){
+  require_once 'views/authDataSub.php';
+}
+elseif($url[0] == 'handleDataSub'){
+  require_once 'routes/dataSub.php';
+}
+elseif($url[0] == 'transactionPin'){
+  require_once 'views/transactionPin.php';
+}
+elseif($url[0] == 'handleTransactionPin'){
+  require_once 'routes/setTransactionPin.php';
+}
+elseif($url[0] == ''){
+  require_once 'views/.php';
+}
+elseif($url[0] == ''){
+  require_once 'routes/.php';
+}
+elseif($url[0] == ''){
+  require_once 'views/.php';
+}
+elseif($url[0] == ''){
+  require_once 'routes/.php';
+}
 elseif($url[0] == ''){
   require_once 'views/.php';
 }
